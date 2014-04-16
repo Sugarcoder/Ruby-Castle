@@ -40,6 +40,20 @@ end
 end
 
 
+# The code above creates the framework for the entire Castle. 
+
+
+
+# Now you can access the "player" variable.
+
+
+my_castle = Castle.new("Princess Ruby")
+puts my_castle.player.name
+
+
+
+
+
 
 
 

@@ -1,0 +1,13 @@
+# Structs = a special class; their only job is to have attributes and to hold data. 
+
+# Example: 
+
+Princess = Struct.new(:name, :age, :gender)
+Bubblegum = Princess.new("Bubblegum", 16, "female")
+Lumpy_Space_Princess = Princess.new("LSP", 13, "female")
+Fire_Princess = Princess.new("Fire Princess", 13, "female")
+
+puts Bubblegum.age + Fire_Princess.age
+
+
+

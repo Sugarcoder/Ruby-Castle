@@ -3,11 +3,32 @@
 # Example: 
 
 Princess = Struct.new(:name, :age, :gender)
-Bubblegum = Princess.new("Bubblegum", 16, "female")
-Lumpy_Space_Princess = Princess.new("LSP", 13, "female")
-Fire_Princess = Princess.new("Fire Princess", 13, "female")
+Ruby = Princess.new("Ruby", 15, "female")
+Java = Princess.new("Java", 16, "female")
 
-puts Bubblegum.age + Fire_Princess.age
+puts Ruby.age + Java.age       # Answer will be 31
 
+
+# If you just want to store some data, "Struct" is good. Otherwise, spell out the whole class.
+
+
+
+# FOR THE CASTLE GAME:
+
+class Castle 
+   attr_accessor :player                          # refresher: attr_accessor = access the attributes...
+  
+   def initialize(player_name)
+     @player = Player.new(player_name)
+     @rooms = []
+   end
+  
+   
+   Player = Struct.new(:name, :location)
+   Room = Struct.new(:reference, :name, :description, :connections)
+
+end
+  
+  
 
 

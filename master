@@ -57,9 +57,6 @@ class Castle
    end
    
    
-end
-   
-   
    
    
    
@@ -93,6 +90,9 @@ class Room
    
    
 end
+end      # This is closing out class Castle
+
+
 
 
 

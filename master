@@ -7,14 +7,56 @@ class Castle
    end
    
    
-   Princess = Struct.new(:name, :location)
-   Room = Struct.new(:name, :reference, :description, :connections)
    
    
    def add_room(name, reference, description, connections)
       @rooms << Room.new(name, reference, description, connections)
    end
 
+
+
+   def start(location)
+      @princess.location = location
+      show_current_description
+   end
+   
+   
+   
+   def show_current_location
+      puts find_room_in_castle(@princess.location).full_description
+   end
+   
+   
+   
+   def find_room_in_castle(reference)
+      @rooms.detect { |room| room.reference == reference } 
+   end
+   
+   
+   
+   def find_room_in_direction(direction)
+      find_room_in_castle(@princess.location).connections[directions]
+   end
+   
+   
+   
+
+# "Go" method allows you to navigate the Castle.
+
+# To navigate the Castle, type ".go" command after the method. 
+
+# Example: my_castle.go(:west), my_castle.go(:east)
+
+
+
+
+   def go(direction)
+      puts "You go " + direction.to_s                        
+      @princess.location = find_room_in_direction(direction)
+      show_current_location
+   end
+   
+   
 end
    
    
@@ -42,6 +84,13 @@ class Room
    end
    
    
+   
+   def full_description
+      @name + "\n\nYou are in " + @description
+   end
+   
+   
+   
 end        # Closing out class Castle
 end        # Closing out class Princess
 end        # Closing out class Room
@@ -49,22 +98,24 @@ end        # Closing out class Room
 
 
 
-my_castle = Castle.new("Princess Ruby")
+my_castle = Castle.new("Princess Ruby")        # This is the main castle object
+
 
 puts my_castle.princess.name             # Answer will be Ruby
 
 
 
-my_castle.add_room("King's Room", :kingroom, "This is the King's room", {:west => :queenroom}  )
-my_castle.add_room("Queen's Room", :queenroom, "This is the Queen's room", {:east => :kingroom} )
+
+# Adding rooms to the castle below:
+
+my_castle.add_room("King's Room", :kingsroom, "This is the King's room", {:west => :queensroom}  )
+
+
+my_castle.add_room("Queen's Room", :queensroom, "This is the Queen's room", {:east => :kingsroom} )
 
 
 
 
+# Starting the Castle game by placing Princess Ruby in the King's Room:
 
-
-
-
-
-
- 
+my_castle.start(:kingsroom)

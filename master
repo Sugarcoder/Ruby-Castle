@@ -100,7 +100,7 @@ end      # This is closing out class Castle
 my_castle = Castle.new("Princess Ruby")        # This is the main castle object
 
 
-puts my_castle.princess.name             # Answer will be Ruby
+puts my_castle.princess.name             # Answer will be Princess Ruby
 
 
 

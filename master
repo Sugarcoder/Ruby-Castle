@@ -1,0 +1,70 @@
+class Castle
+   attr_accessor :princess                  # You can add more attributes if you need to 
+   
+   def initialize(princess_name)
+      @princess = Princess.new(princess_name)
+      @rooms = []                           # [] creates an empty array (it is getting ready for you to add a list
+   end
+   
+   
+   Princess = Struct.new(:name, :location)
+   Room = Struct.new(:name, :reference, :description, :connections)
+   
+   
+   def add_room(name, reference, description, connections)
+      @rooms << Room.new(name, reference, description, connections)
+   end
+
+end
+   
+   
+   
+   
+   
+class Princess
+   attr_accessor :name, :location
+
+   def initialize (princess_name)
+      @name = princess_name
+   end
+
+
+
+
+class Room
+   attr_accessor :name, :reference, :description, :connections
+   
+   def initialize(name, reference, description, connections)
+      @name = name
+      @reference = reference
+      @description = description
+      @connections = connections
+   end
+   
+   
+end        # Closing out class Castle
+end        # Closing out class Princess
+end        # Closing out class Room
+
+
+
+
+my_castle = Castle.new("Princess Ruby")
+
+puts my_castle.princess.name             # Answer will be Ruby
+
+
+
+my_castle.add_room("King's Room", :kingroom, "This is the King's room", {:west => :queenroom}  )
+my_castle.add_room("Queen's Room", :queenroom, "This is the Queen's room", {:east => :kingroom} )
+
+
+
+
+
+
+
+
+
+
+ 

@@ -3,7 +3,7 @@ class Castle
    
    def initialize(princess_name)
       @princess = Princess.new(princess_name)
-      @rooms = []                           # [] creates an empty array (it is getting ready for you to add a list
+      @rooms = []                           # [] creates an empty array (it is getting ready for you to add a list)
    end
    
    

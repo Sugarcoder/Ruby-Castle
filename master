@@ -69,6 +69,8 @@ class Princess
    def initialize (princess_name)
       @name = princess_name
    end
+   
+end
 
 
 
@@ -90,10 +92,7 @@ class Room
    end
    
    
-   
-end        # Closing out class Castle
-end        # Closing out class Princess
-end        # Closing out class Room
+end
 
 
 
